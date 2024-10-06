@@ -1,0 +1,81 @@
+/* Basic styles for the webpage */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333; /* Dark grey text */
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Navigation bar styles */
+nav {
+    background-color: #4CAF50; /* Green background */
+    padding: 15px;
+    text-align: center;
+}
+
+nav button {
+    background-color: #fff;
+    color: #770737;
+    border: 2px solid #FF5733;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Centered logo at the top */
+header img {
+    display: block;
+    margin: 30px auto;
+    width: 400px; /* Adjust the size of your logo */
+}
+
+/* Main heading and paragraph styles */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2E8B57; /* Sea green color for heading */
+}
+
+p {
+    line-height: 2;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #2E8B57;
+    margin-top: 50px;
+}
+h3 {
+    text-align: center;
+    color: #000000;
+}
+
+
+img{
+    display: block;
+    margin: 20px auto;
+    width: 300px;
+
+}
+/* Styling the unordered list */
+ul {
+    list-style-type: circle;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}

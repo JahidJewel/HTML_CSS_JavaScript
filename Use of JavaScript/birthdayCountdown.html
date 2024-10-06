@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Until My Birthday</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #birthdayMessage {
+            font-size: 2rem;
+        }
+
+        nav {
+    background-color: #4CAF50; /* Green background */
+    padding: 15px;
+    text-align: center;
+}
+
+nav button {
+    background-color: #fff;
+    color: #770737;
+    border: 2px solid #FF5733;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+    
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Birthday Countdown</h1>
+    <div id="birthdayMessage"></div>
+
+    <script>
+        
+        // Function to calculate the number of days until birthday
+        function calculateDaysUntilBirthday() {
+            const today = new Date();
+            const birthday = new Date(today.getFullYear(),9, 21); // Set birthday (Month is zero-indexed, so 11 is December)
+
+            // If birthday has already passed this year, calculate for next year
+            if (today > birthday) {
+                birthday.setFullYear(today.getFullYear() + 1);
+            }
+
+            // Calculate the difference in milliseconds and convert to days
+            const difference = Math.ceil((birthday - today) / (1000 * 60 * 60 * 24));
+
+            // Determine message color based on the difference
+            let message = `There are ${difference} days left until my birthday!`;
+            if (difference < 30) {
+                document.getElementById("birthdayMessage").style.color = "red";
+            } else if (difference >= 60 && difference <= 180) {
+                document.getElementById("birthdayMessage").style.color = "green";
+            } else {
+                document.getElementById("birthdayMessage").style.color = "blue";
+            }
+
+            // Display the message
+            document.getElementById("birthdayMessage").innerHTML = message;
+        }
+
+        // Call the function on page load
+        calculateDaysUntilBirthday();
+    </script>
+
+    <nav>
+        <ul>
+            <li><a href="birthday.html">Click if it's your Birthday!!</a></li> <!-- Link to the birthday page -->
+            
+        </ul>
+    </nav>
+</body>
+</html>
