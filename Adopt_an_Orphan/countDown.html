@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Event CountDown</title>
+
+	<style>
+
+		.center {
+			text-align: center;
+			border: 3px solid green;
+		}
+
+		h1{
+			text-align: center;
+		}
+
+
+
+		body, html {
+			height: 100%;
+			margin: 0;
+		}
+
+		.bg {
+			/* The image used */
+			background-image: url("photos/3.jpg");
+
+			/* Full height */
+			height: 100%; 
+
+			/* Center and scale the image nicely */
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		nav {
+			/* Use of HSLA color */
+			background-color:hsla(290,60%,70%,0.3); /* Pastel violet background */
+			padding: 25px;
+			text-align: center;
+			font-size: 35px;
+		}
+
+		nav button {
+			background-color: #fff;
+			color: #770737;
+			border: 2px solid #FF5733;
+			padding: 10px 20px;
+			margin: 5px;
+			cursor: pointer;
+			font-size: 50px;
+		}
+
+		nav button:hover {
+			background-color: #4CAF50;
+			color: white;
+		}
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+
+
+
+	<h1>Countdown to our next Fundrsing Event</h1>
+	<div id="Message" class="center">
+
+	</div>
+	<div id="dateTime"></div> 
+	<div class="bg"></div>
+
+	
+
+
+
+
+
+	<script>
+		function calculateDays() {
+			const today = new Date();
+            const fundrisingday = new Date(today.getFullYear(),11, 21); // Set birthday (Month is zero-indexed, so 11 is December)
+
+            // If birthday has already passed this year, calculate for next year
+            if (today > fundrisingday) {
+            	fundrisingday.setFullYear(today.getFullYear() + 1);
+            }
+
+            // Calculate the difference in milliseconds and convert to days
+            const difference = Math.ceil((fundrisingday - today) / (1000 * 60 * 60 * 24));
+
+            // Determine message color based on the difference
+            let message = `Only ${difference} days left for our next event!`;
+            if (difference < 30) {
+            	document.getElementById("Message").style.color = "red";
+            } else if (difference >= 60 && difference <= 180) {
+            	document.getElementById("Message").style.color = "green";
+            } else {
+            	document.getElementById("Message").style.color = "blue";
+            }
+
+            // Display the message
+            document.getElementById("Message").innerHTML = message;
+        }
+
+        // Call the function on page load
+        calculateDays();
+
+
+    </script>
+
+
+    <main>
+    	<nav>
+    		<a href="form.html">Wanna join? Contact us today !!</a>
+    		<br>
+    		<a href="index.html">Back to Home Page</a>
+    	</nav>
+
+    </main>
+
+
+
+
+</body>
+</html>
